@@ -270,6 +270,32 @@
         color: var(--color-accent-dark);
       }
 
+      
+      .cart-button {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        background: var(--color-accent-dark);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .cart-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+      }
+
+
       .requirements-box {
         background: rgba(255, 255, 255, 0.7);
         border: 1px solid var(--color-accent);
@@ -794,6 +820,33 @@
         font-size: 16px;
       }
 
+            .filter-tabs {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+      }
+
+      .filter-tab {
+        padding: 10px 20px;
+        border: 2px solid var(--color-primary);
+        background: white;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--color-accent-dark);
+        transition: all 0.3s;
+      }
+
+      .filter-tab:hover,
+      .filter-tab.active {
+        background: var(--color-accent-dark);
+        color: white;
+        border-color: var(--color-accent-dark);
+      }
+
+
       @media (max-width: 768px) {
         .shape-details {
           grid-template-columns: 1fr;
@@ -1219,7 +1272,7 @@
             ><i class="bi bi-person-standing"></i> Body Shape</a
           >
           <a href="#suggested-clothes" class="nav-btn"
-            ><i class="bi bi-basket"></i> Suggested Clothes</a
+            ><i class="bi bi-basket"></i> Shop</a
           >
         </nav>
 
@@ -1594,12 +1647,19 @@
 
         <!-- Suggested Clothes Section -->
         <section id="suggested-clothes" class="content-section">
+          <button class="cart-button" id="cartButton" style="display: none">
+            <i class="bi bi-cart3"></i>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+
           <div class="section-icon"><i class="bi bi-basket"></i></div>
-          <div class="section-title"><i>Suggested Clothes</i></div>
+          <div class="section-title"><i>Shop Clothes</i></div>
           <div class="section-subtitle">
             Curated outfits that match your color season and body shape for
             maximum style impact.
           </div>
+
+
 
           <div class="subsection">
             <h3>Your Style Recommendations</h3>
@@ -1608,6 +1668,14 @@
               flattering silhouettes for your hourglass figure. Click to select
               your favorites!
             </p>
+                      <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">All Items</button>
+            <button class="filter-tab" data-filter="tops">Tops</button>
+            <button class="filter-tab" data-filter="dresses">Dresses</button>
+            <button class="filter-tab" data-filter="bottoms">Bottoms</button>
+            <button class="filter-tab" data-filter="outerwear">Outerwear</button>
+          </div>
+
 
             <div class="clothes-grid">
               <div class="clothes-item">
